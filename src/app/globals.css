@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+:root {
+  --bg:        #FFFFFF;
+  --surface:   #FFFFFF;
+  --surface-2: #F8F8F8;
+  --surface-3: #F1ECE6;
+  --border:    #F0F0F0;
+  --border-2:  #E5E5E5;
+
+  --accent:      #EEC1A0;
+  --accent-dim:  #D9A983;
+  --accent-tint: rgba(238,193,160,0.20);
+  --accent-ink:  #000000;
+
+  --good:      #4CAF50;
+  --good-tint: rgba(76,175,80,0.12);
+  --bad:       #E53935;
+  --bad-tint:  rgba(229,57,53,0.10);
+  --warn:      #F4B400;
+  --warn-tint: rgba(244,180,0,0.14);
+
+  --sport:      #6C63FF;
+  --sport-tint: rgba(108,99,255,0.12);
+  --sport-dim:  #5A52D5;
+
+  --t1: #000000;
+  --t2: #4D4D4D;
+  --t3: #A9A9A9;
+
+  --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-btn:  0 4px 14px rgba(217,169,131,0.45);
+
+  --r-card: 20px;
+  --r-field: 14px;
+  --r-pill: 999px;
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-2: var(--border-2);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-tint: var(--accent-tint);
+  --color-accent-ink: var(--accent-ink);
+  --color-good: var(--good);
+  --color-good-tint: var(--good-tint);
+  --color-bad: var(--bad);
+  --color-bad-tint: var(--bad-tint);
+  --color-warn: var(--warn);
+  --color-warn-tint: var(--warn-tint);
+  --color-sport: var(--sport);
+  --color-sport-tint: var(--sport-tint);
+  --color-t1: var(--t1);
+  --color-t2: var(--t2);
+  --color-t3: var(--t3);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-feature-settings: "rlig" 1, "calt" 1;
+  background: var(--bg);
+  color: var(--t1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.4s ease-out both; }
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slideUp { animation: slideUp 0.5s ease-out both; }
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(238,193,160,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(238,193,160,0); }
+}
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+.field {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: var(--r-field);
+  background: var(--surface-2);
+  border: 1.5px solid var(--border-2);
+  color: var(--t1);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.field:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-tint);
+}
+.field::placeholder { color: var(--t3); }
+
+.glass {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border-radius: var(--r-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.tap {
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.1s;
+}
+.tap:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
